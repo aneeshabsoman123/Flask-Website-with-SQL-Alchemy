@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block content %}
+
+{% if name%}
+ <h1>Hello {{name}}!!</h1>
+ <p>Welcome {{name}} to my website!!</p>
+ <br>
+ <img src="{{url_for('static',filename='images/profile_pic.jpg')}}" width="200">
+ <p>Thats me! Aneesha.</p>
+ <p>Here in this website you can see all my articles and projects API endpoint</p>
+ <p>Hope you have fun browsing my website</p>
+
+{% else %}
+<h1>Whats your name?</h1>
+<br>
+<form method="POST">
+   {{form.hidden_tag()}}
+   {{form.name.label(class='form-label')}}
+   {{form.name(class='form-control')}}
+   <br>
+   {{form.submit(class='btn btn-secondary')}}
+</form>
+   
+{% endif %}
+{% endblock %}
